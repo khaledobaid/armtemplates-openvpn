@@ -86,7 +86,9 @@
         "ReturnedId":
         {
             "type": "string",
-            "value": "[reference(variables('NSGName')).id]"
+            "value": "[resourceId('Microsoft.Network/networkSecurityGroups', parameters('NSGName'))]"
         }
     }
   }
+
+  
