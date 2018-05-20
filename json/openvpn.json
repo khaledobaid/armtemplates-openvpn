@@ -19,7 +19,8 @@
                 "mode":"Incremental",
                 "templateLink":
                 {
-                    "uri":"[variables('VNETUrl')]"
+                    "uri":"[variables('VNETUrl')]",
+                    "contentVersion": "1.0.0.0"
                 }
             }
         },
@@ -32,7 +33,8 @@
                 "mode":"Incremental",
                 "templateLink":
                 {
-                    "uri":"[variables('NSGUrl')]"
+                    "uri":"[variables('NSGUrl')]",
+                    "contentVersion": "1.0.0.0"
                 }
             }
         }
