@@ -48,6 +48,49 @@
                     "contentVersion": "1.0.0.0"
                 }
             } 
+        },
+        {
+            "apiVersion":"2018-02-01",
+            "name":"SUBNETNSGUpdate",
+            "type":"Microsoft.Resources/deployments",
+            "properties":
+            {
+                "mode":"Incremental",
+                "template":
+                {
+                    "$schema": "http://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+                    "contentVersion": "1.0.0.0",
+                    "resources":
+                    [
+                        {
+                            "type": "Microsoft.Network/virtualNetworks",
+                            "name": "[variables('VirtualNetworkName')]",
+                            "apiVersion": "2018-02-01",
+                            "location": "[resourceGroup().location]",
+                            "tags": {},
+                            "properties": 
+                            {
+                                "subnets": 
+                                [
+                                    {
+                                        "name": "default",
+                                        "properties": {
+                                            "addressPrefix": "[variables('VirtualNetworkAddressSpace')]",
+                                            "networkSecurityGroup":
+                                            {
+                                                "id":"[resourceId('Microsoft.Network/networkSecurityGroups','OpenVPN-VNET-Subnet-Default-NSG')]"
+                                            }
+                                        } 
+                                    }
+                                ]
+                            }
+                        }
+                    ]
+                }
+            },"dependsOn": 
+            [
+                "VNETDeployment","NSGDeployment"
+            ]
         }
     ]
 }
