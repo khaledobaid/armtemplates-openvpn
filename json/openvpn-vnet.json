@@ -33,11 +33,7 @@
                     {
                         "name": "default",
                         "properties": {
-                            "addressPrefix": "[variables('VirtualNetworkAddressSpace')]",
-                            "networkSecurityGroup":
-                            {
-                                "id":"[parameters('NSGID')]"
-                            }
+                            "addressPrefix": "[variables('VirtualNetworkAddressSpace')]"  
                         } 
                     }
                 ]
