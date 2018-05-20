@@ -1,17 +1,6 @@
 {
     "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
     "contentVersion": "1.0.0.0",
-    "parameters": 
-    {
-        "NSGID":
-        {
-            "type": "string",
-            "metadata": 
-            {
-                "description": "Enter the Network Security Group ID that will be linked with the default Subnet."
-            }
-        }
-    },
     "variables": {
         "VirtualNetworkName": "OpenVPN-VNET",
         "VirtualNetworkAddressSpace": "192.168.255.240/28"
