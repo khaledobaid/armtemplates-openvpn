@@ -26,7 +26,7 @@
             "dependsOn": 
             [
                 "NSGDeployment"
-            ]
+            ] 
         },
         {
             "apiVersion":"2018-02-01",

@@ -5,7 +5,7 @@
         "VirtualNetworkName": "OpenVPN-VNET",
         "VirtualNetworkAddressSpace": "192.168.255.240/28"
     },
-    "resources": [
+    "resources": [ 
         {
             "type": "Microsoft.Network/virtualNetworks",
             "name": "[variables('VirtualNetworkName')]",

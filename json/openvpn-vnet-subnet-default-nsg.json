@@ -6,7 +6,7 @@
     {
         "NSGName":"OpenVPN-VNET-Subnet-Default-NSG"
     },
-    "resources": 
+    "resources":  
     [
         {
             "name":"[variables('NSGName')]",
