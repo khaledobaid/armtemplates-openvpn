@@ -1,0 +1,38 @@
+{
+    "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+    "contentVersion": "1.0.0.0",
+    "variables":
+    {
+        "baseUrl":"https://github.com/khaledobaid/armtemplates-openvpn/tree/master/json",
+        "VNETUrl":"[concat(variables('baseUrl'),'openvpn-vnet.json')]",
+        "NSGUrl":"[concat(variables('baseUrl'),'openvpn-vnet-subnet-default-nsg.json')]"
+    },
+    "parameters": {},
+    "resources": 
+    [
+        {
+            "name":"VNET-Deployment",
+            "type":"Microsoft.Resources/deployments",
+            "apiVersion":"2018-02-01",
+            "properties":
+            {
+                "templateLink":
+                {
+                    "uri":"[variables('VNETUrl')]"
+                }
+            }
+        },
+        {
+            "name":"NSG-Deployment",
+            "type":"Microsoft.Resources/deployments",
+            "apiVersion":"2018-02-01",
+            "properties":
+            {
+                "templateLink":
+                {
+                    "uri":"[variables('NSGUrl')]"
+                }
+            }
+        }
+    ]
+}
