@@ -21,13 +21,6 @@
                 {
                     "uri":"[variables('VNETUrl')]",
                     "contentVersion": "1.0.0.0"
-                },
-                "parameters":
-                {
-                    "NSGID":
-                    {
-                        "value": "[reference('NSGDeployment').outputs.NSGOutputID.value]"
-                    }
                 }
             },
             "dependsOn": 
