@@ -57,7 +57,7 @@
                     [
                         {
                             "type": "Microsoft.Network/virtualNetworks",
-                            "name": "OpenVPN-VNET",
+                            "name": "[reference('VNETDeployment').outputs.Name.value]",
                             "apiVersion": "2018-02-01",
                             "location": "[resourceGroup().location]",
                             "tags": {},
@@ -68,10 +68,10 @@
                                     {
                                         "name": "default",
                                         "properties": {
-                                            "addressSpace": "[reference('OpenVPN-VNET').addressSpace]",
+                                            "addressSpace": "[reference('VNETDeployment').outputs.AddressSpace.value]",
                                             "networkSecurityGroup":
                                             {
-                                                "id":"[resourceId('Microsoft.Network/networkSecurityGroups','OpenVPN-VNET-Subnet-Default-NSG')]"
+                                                "id":"[resourceId('Microsoft.Network/networkSecurityGroups',[reference('NSGDeployment').outputs.AddressSpace.value])]"
                                             }
                                         } 
                                     }

@@ -28,5 +28,18 @@
                 ]
             }
         }
-    ]
+    ],
+    "outputs": 
+    {
+        "AddressSpace":
+        {
+            "type": "string",
+            "value": "[variables('VirtualNetworkAddressSpace')]"
+        },
+        "Name":
+        {
+            "type": "string",
+            "value": "[variables('VirtualNetworkName')]"
+        }
+    }
 }

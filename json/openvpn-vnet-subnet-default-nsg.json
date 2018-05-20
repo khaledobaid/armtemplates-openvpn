@@ -80,7 +80,15 @@
                 ]
             }
         }
-    ]
+    ],
+    "outputs": 
+    {
+        "Name":
+        {
+            "type": "string",
+            "value": "[variables('NSGName')]"
+        }
+    }
   }
 
   
