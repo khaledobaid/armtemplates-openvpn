@@ -68,7 +68,6 @@
                                     {
                                         "name": "default",
                                         "properties": {
-                                            "addressPrefix": "[variables('VirtualNetworkAddressSpace')]",
                                             "networkSecurityGroup":
                                             {
                                                 "id":"[resourceId('Microsoft.Network/networkSecurityGroups','OpenVPN-VNET-Subnet-Default-NSG')]"
