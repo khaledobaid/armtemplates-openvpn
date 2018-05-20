@@ -68,6 +68,7 @@
                                     {
                                         "name": "default",
                                         "properties": {
+                                            "addressSpace": "[reference('OpenVPN-VNET').addressSpace]",
                                             "networkSecurityGroup":
                                             {
                                                 "id":"[resourceId('Microsoft.Network/networkSecurityGroups','OpenVPN-VNET-Subnet-Default-NSG')]"
