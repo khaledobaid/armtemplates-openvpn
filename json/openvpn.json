@@ -71,7 +71,7 @@
                                             "addressSpace": "[reference('VNETDeployment').outputs.AddressSpace.value]",
                                             "networkSecurityGroup":
                                             {
-                                                "id":"[resourceId('Microsoft.Network/networkSecurityGroups',[reference('NSGDeployment').outputs.AddressSpace.value])]"
+                                                "id":"[resourceId('Microsoft.Network/networkSecurityGroups',reference('NSGDeployment').outputs.AddressSpace.value)]"
                                             }
                                         } 
                                     }
