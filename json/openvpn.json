@@ -55,7 +55,7 @@
                     "contentVersion": "1.0.0.0",
                     "resources":
                     [
-                        {
+                        {  
                             "type": "Microsoft.Network/virtualNetworks",
                             "name": "[reference('VNETDeployment').outputs.VNETName.value]",
                             "apiVersion": "2018-02-01",
@@ -63,6 +63,13 @@
                             "tags": {},
                             "properties": 
                             {
+                                "addressSpace": 
+                                {
+                                    "addressPrefixes": 
+                                    [
+                                        "[reference('VNETDeployment').outputs.VirtualNetworkAddressSpace.value]"
+                                    ]
+                                },
                                 "subnets": 
                                 [
                                     {
