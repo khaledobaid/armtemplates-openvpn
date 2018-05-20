@@ -23,7 +23,11 @@
                     {
                         "name": "default",
                         "properties": {
-                            "addressPrefix": "[variables('VirtualNetworkAddressSpace')]"
+                            "addressPrefix": "[variables('VirtualNetworkAddressSpace')]",
+                            "networkSecurityGroup":
+                            {
+                                "id":"[parameters('NSG').value]"
+                            }
                         }
                     }
                 ]

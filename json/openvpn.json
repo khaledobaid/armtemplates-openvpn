@@ -21,8 +21,19 @@
                 {
                     "uri":"[variables('VNETUrl')]",
                     "contentVersion": "1.0.0.0"
+                },
+                "parameters":
+                {
+                    "NSG":
+                    {
+                        "value": "[reference('NSGDeployment').outputs.NSGID.value]"
+                    }
                 }
-            }
+            },
+            "dependsOn": 
+            [
+                "NSGDeployment"
+            ]
         },
         {
             "apiVersion":"2018-02-01",
