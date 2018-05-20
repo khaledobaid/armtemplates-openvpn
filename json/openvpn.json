@@ -16,6 +16,7 @@
             "apiVersion":"2018-02-01",
             "properties":
             {
+                "mode":"Complete",
                 "templateLink":
                 {
                     "uri":"[variables('VNETUrl')]"
@@ -28,6 +29,7 @@
             "apiVersion":"2018-02-01",
             "properties":
             {
+                "mode":"Complete",
                 "templateLink":
                 {
                     "uri":"[variables('NSGUrl')]"
