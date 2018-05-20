@@ -83,7 +83,7 @@
     ],
     "outputs": 
     {
-        "ReturnedId":
+        "NSGOutputID":
         {
             "type": "string",
             "value": "[resourceId('Microsoft.Network/networkSecurityGroups', parameters('NSGName'))]"

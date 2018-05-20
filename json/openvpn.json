@@ -26,7 +26,7 @@
                 {
                     "NSGID":
                     {
-                        "value": "[reference('NSGDeployment').outputs.ReturnedId.value]"
+                        "value": "[reference('NSGDeployment').outputs.NSGOutputID.value]"
                     }
                 }
             },
