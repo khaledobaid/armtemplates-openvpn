@@ -1,0 +1,76 @@
+{
+    "$schema": "http://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+    "contentVersion": "1.0.0.0",
+    "parameters": {},
+    "resources": 
+    [
+        {
+            "name":"OpenVPN-VNET-Subnet-Default-NSG",
+            "type":"Microsoft.Network/networkSecurityGroups",
+            "apiVersion":"2018-04-01",
+            "location":"[resourceGroup().location]",
+            "properties":
+            {
+                "securityRules":
+                [
+                    {
+                        "name":"SSH",
+                        "properties":
+                        {
+                          "description":"Allow SSH Login To The Virtual Machine",
+                          "access":"Allow",
+                          "direction":"Inbound",
+                          "protocol":"TCP",
+                          "sourcePortRange":"*",
+                          "sourceAddressPrefix":"*",
+                          "destinationPortRange":"22",
+                          "destinicationAddressPrefix":"*"
+                        }
+                    },
+                    {
+                        "name":"SSL",
+                        "properties":
+                        {
+                          "description":"Required By Open VPN Server",
+                          "access":"Allow",
+                          "direction":"Inbound",
+                          "protocol":"TCP",
+                          "sourcePortRange":"*",
+                          "sourceAddressPrefix":"*",
+                          "destinationPortRange":"443",
+                          "destinicationAddressPrefix":"*"
+                        }
+                    },
+                    {
+                        "name":"1194",
+                        "properties":
+                        {
+                          "description":"Required By Open VPN Server",
+                          "access":"Allow",
+                          "direction":"Inbound",
+                          "protocol":"UDP",
+                          "sourcePortRange":"*",
+                          "sourceAddressPrefix":"*",
+                          "destinationPortRange":"1194",
+                          "destinicationAddressPrefix":"*"
+                        }
+                    },
+                    {
+                        "name":"943",
+                        "properties":
+                        {
+                          "description":"Required By Open VPN Server",
+                          "access":"Allow",
+                          "direction":"Inbound",
+                          "protocol":"TCP",
+                          "sourcePortRange":"*",
+                          "sourceAddressPrefix":"*",
+                          "destinationPortRange":"943",
+                          "destinicationAddressPrefix":"*"
+                        }
+                    }
+                ]
+            }
+        }
+    ]
+  }

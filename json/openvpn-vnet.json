@@ -1,0 +1,34 @@
+{
+    "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+    "contentVersion": "1.0.0.0",
+    "parameters": {},
+    "variables": {
+        "VirtualNetworkName": "OpenVPN-VNET",
+        "VirtualNetworkAddressSpace": "192.168.255.240/28"
+    },
+    "resources": [
+        {
+            "type": "Microsoft.Network/virtualNetworks",
+            "name": "[variables('VirtualNetworkName')]",
+            "apiVersion": "2018-02-01",
+            "location": "[resourceGroup().location]",
+            "tags": {},
+            "properties": {
+                "addressSpace": {
+                    "addressPrefixes": [
+                        "[variables('VirtualNetworkAddressSpace')]"
+                    ]
+                },
+                "subnets": [
+                    {
+                        "name": "default",
+                        "properties": {
+                            "addressPrefix": "[variables('VirtualNetworkAddressSpace')]"
+                        }
+                    }
+                ]
+            },
+            "dependsOn": []
+        }
+    ]
+}
