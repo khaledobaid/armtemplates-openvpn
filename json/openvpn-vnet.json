@@ -36,7 +36,7 @@
             "type": "string",
             "value": "[variables('VirtualNetworkAddressSpace')]"
         },
-        "Name":
+        "VNETName":
         {
             "type": "string",
             "value": "[variables('VirtualNetworkName')]"

@@ -57,7 +57,7 @@
                     [
                         {
                             "type": "Microsoft.Network/virtualNetworks",
-                            "name": "[reference('VNETDeployment').outputs.Name.value]",
+                            "name": "[reference('VNETDeployment').outputs.VNETName.value]",
                             "apiVersion": "2018-02-01",
                             "location": "[resourceGroup().location]",
                             "tags": {},
@@ -68,7 +68,6 @@
                                     {
                                         "name": "default",
                                         "properties": {
-                                            "addressSpace": "[reference('VNETDeployment').outputs.AddressSpace.value]",
                                             "networkSecurityGroup":
                                             {
                                                 "id":"[resourceId('Microsoft.Network/networkSecurityGroups',reference('NSGDeployment').outputs.AddressSpace.value)]"
