@@ -67,7 +67,9 @@
                                 [
                                     {
                                         "name": "default",
-                                        "properties": {
+                                        "properties": 
+                                        {
+                                            "addressPrefix":"[reference('VNETDeployment').outputs.DefaultSubnetAddressPrefix.value]",
                                             "networkSecurityGroup":
                                             {
                                                 "id":"[resourceId('Microsoft.Network/networkSecurityGroups',reference('NSGDeployment').outputs.Name.value)]"
