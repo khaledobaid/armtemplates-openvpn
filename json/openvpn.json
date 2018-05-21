@@ -23,6 +23,10 @@
         "NetworkSecurityGroupName":
         {
             "type":"string"
+        },
+        "SecretInfo":
+        {
+            "type": "securestring"
         }
     },
     "resources": 
@@ -73,6 +77,10 @@
                     "NetworkSecurityGroupName" :
                     {
                         "value": "[parameters('NetworkSecurityGroupName')]"
+                    },
+                    "SecretInfo":
+                    {
+                        "value":"[parameters('SecretInfo')]"
                     }
                 }
             } 
