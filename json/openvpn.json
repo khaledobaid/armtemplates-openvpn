@@ -8,21 +8,6 @@
     },
     "parameters": 
     {
-        "UseParameterFile":
-        {
-            "type": "bool",
-            "defaultValue": true,
-            "allowedValues": 
-            [
-                true,
-                false
-            ],
-            "metadata":  
-            {
-                "description":"This is required to supoort providing deployment file from the auzre portal, anyway it will be ignored udring deployment."
-            }
-
-        },
         "BaseTemplateUrl":
         {
             "type": "string"
