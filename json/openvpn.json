@@ -3,14 +3,8 @@
     "contentVersion": "1.0.0.0",
     "variables":
     {
-        "baseUrl":"https://raw.githubusercontent.com/khaledobaid/armtemplates-openvpn/master/json/",
-        "VNETUrl":"[concat(variables('baseUrl'),'openvpn-vnet.json')]",
-        "NSGUrl":"[concat(variables('baseUrl'),'openvpn-vnet-subnet-default-nsg.json')]",
-
-        "VirtualNetworkName":"OpenVPN-VNET",
-        "VirtualNetworkAddressSpace":"192.168.255.240/28",
-        "NetworkSecurityGroupName":"OpenVPN-VNET-Subnet-Default-NSG"
-
+        "VNETUrl":"[concat(parameters('BaseTemplateUrl'),'openvpn-vnet.json')]",
+        "NSGUrl":"[concat(parameters('BaseTemplateUrl'),'openvpn-vnet-subnet-default-nsg.json')]"
     },
     "parameters": {},
     "resources": 
@@ -31,11 +25,11 @@
                 {
                     "VirtualNetworkName":
                     {
-                        "value": "[variables('VirtualNetworkName')]"
+                        "value": "[parameters('VirtualNetworkName')]"
                     },
                     "VirtualNetworkAddressSpace":
                     {
-                        "value": "[variables('VirtualNetworkAddressSpace')]"
+                        "value": "[parameters('VirtualNetworkAddressSpace')]"
                     }
                 }
             },
@@ -60,7 +54,7 @@
                 {
                     "NetworkSecurityGroupName" :
                     {
-                        "value": "[variables('NetworkSecurityGroupName')]"
+                        "value": "[parameters('NetworkSecurityGroupName')]"
                     }
                 }
             } 
@@ -80,7 +74,7 @@
                     [
                         {  
                             "type": "Microsoft.Network/virtualNetworks",
-                            "name": "[variables('VirtualNetworkName')]",
+                            "name": "[parameters('VirtualNetworkName')]",
                             "apiVersion": "2018-02-01",
                             "location": "[resourceGroup().location]",
                             "tags": {},
@@ -90,7 +84,7 @@
                                 {
                                     "addressPrefixes": 
                                     [
-                                        "[variables('VirtualNetworkAddressSpace')]"
+                                        "[parameters('VirtualNetworkAddressSpace')]"
                                     ]
                                 },
                                 "subnets": 
@@ -99,10 +93,10 @@
                                         "name": "default",
                                         "properties": 
                                         {
-                                            "addressPrefix":"[variables('VirtualNetworkAddressSpace')]",
+                                            "addressPrefix":"[parameters('VirtualNetworkAddressSpace')]",
                                             "networkSecurityGroup":
                                             {
-                                                "id":"[resourceId('Microsoft.Network/networkSecurityGroups',variables('NetworkSecurityGroupName'))]"
+                                                "id":"[resourceId('Microsoft.Network/networkSecurityGroups',parameters('NetworkSecurityGroupName'))]"
                                             }
                                         } 
                                     }

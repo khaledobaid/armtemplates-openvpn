@@ -3,6 +3,10 @@
     "contentVersion": "1.0.0.0",
     "parameters": 
     {
+        "BaseTemplateUrl":
+        {
+            "value": "https://raw.githubusercontent.com/khaledobaid/armtemplates-openvpn/master/json/"
+        },
         "VirtualNetworkName":
         {
             "value": "OpenVPN-VNET"
@@ -10,6 +14,10 @@
         "VirtualNetworkAddressSpace":
         {
             "value":"192.168.255.240/28"
+        },
+        "NetworkSecurityGroupName":
+        {
+            "value":"OpenVPN-VNET-Subnet-Default-NSG"
         }
     }
 }
