@@ -17,7 +17,7 @@
                 true,
                 false
             ],
-            "metadata": 
+            "metadata":  
             {
                 "description":"This is required to supoort providing deployment file from the auzre portal, anyway it will be ignored udring deployment."
             }
