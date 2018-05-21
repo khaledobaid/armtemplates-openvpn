@@ -43,23 +43,5 @@
                 ]
             }
         }
-    ],
-    "outputs": 
-    {
-        "VirtualNetworkAddressSpace":
-        {
-            "type": "string",
-            "value": "[parameters('VirtualNetworkAddressSpace')]"
-        },
-        "DefaultSubnetAddressPrefix":
-        {
-            "type": "string",
-            "value": "[parameters('VirtualNetworkAddressSpace')]"
-        },
-        "VNETName":
-        {
-            "type": "string",
-            "value": "[parameters('VirtualNetworkName')]"
-        }
-    }
+    ]
 }

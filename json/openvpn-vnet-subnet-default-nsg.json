@@ -87,15 +87,7 @@
                 ]
             }
         }
-    ],
-    "outputs": 
-    {
-        "Name":
-        {
-            "type": "string",
-            "value": "[parameters('NetworkSecurityGroupName')]"
-        }
-    }
+    ]
   }
 
   
