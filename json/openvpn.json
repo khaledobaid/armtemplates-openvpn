@@ -14,8 +14,8 @@
             "defaultValue": "true",
             "allowedValues": 
             [
-                "true",
-                "false"
+                true,
+                false
             ],
             "metadata": 
             {
