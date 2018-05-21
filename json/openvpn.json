@@ -6,7 +6,24 @@
         "VNETUrl":"[concat(parameters('BaseTemplateUrl'),'openvpn-vnet.json')]",
         "NSGUrl":"[concat(parameters('BaseTemplateUrl'),'openvpn-vnet-subnet-default-nsg.json')]"
     },
-    "parameters": {},
+    "parameters": 
+    {
+        "UseParameterFile":
+        {
+            "type": "bool",
+            "defaultValue": "true",
+            "allowedValues": 
+            [
+                "true",
+                "false"
+            ],
+            "metadata": 
+            {
+                "description":"This is required to supoort providing deployment file from the auzre portal, anyway it will be ignored udring deployment."
+            }
+
+        }
+    },
     "resources": 
     [
         {
