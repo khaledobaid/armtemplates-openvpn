@@ -5,7 +5,12 @@
     {
         "baseUrl":"https://raw.githubusercontent.com/khaledobaid/armtemplates-openvpn/master/json/",
         "VNETUrl":"[concat(variables('baseUrl'),'openvpn-vnet.json')]",
-        "NSGUrl":"[concat(variables('baseUrl'),'openvpn-vnet-subnet-default-nsg.json')]"
+        "NSGUrl":"[concat(variables('baseUrl'),'openvpn-vnet-subnet-default-nsg.json')]",
+
+        "VirtualNetworkName":"OpenVPN-VNET",
+        "VirtualNetworkAddressSpace":"192.168.255.240/28",
+        "NetworkSecurityGroupName":"OpenVPN-VNET-Subnet-Default-NSG"
+
     },
     "parameters": {},
     "resources": 
@@ -21,6 +26,17 @@
                 {
                     "uri":"[variables('VNETUrl')]",
                     "contentVersion": "1.0.0.0"
+                },
+                "parameters":
+                {
+                    "VirtualNetworkName":
+                    {
+                        "value": "[variables('VirtualNetworkName')]"
+                    },
+                    "VirtualNetworkAddressSpace":
+                    {
+                        "value": "[variables('VirtualNetworkAddressSpace')]"
+                    }
                 }
             },
             "dependsOn": 
@@ -39,6 +55,13 @@
                 {
                     "uri":"[variables('NSGUrl')]",
                     "contentVersion": "1.0.0.0"
+                },
+                "parameters":
+                {
+                    "NetworkSecurityGroupName" :
+                    {
+                        "value": "[variables('NetworkSecurityGroupName')]"
+                    }
                 }
             } 
         },
@@ -57,7 +80,7 @@
                     [
                         {  
                             "type": "Microsoft.Network/virtualNetworks",
-                            "name": "[reference('VNETDeployment').outputs.VNETName.value]",
+                            "name": "[variables('VirtualNetworkName')]",
                             "apiVersion": "2018-02-01",
                             "location": "[resourceGroup().location]",
                             "tags": {},
@@ -67,7 +90,7 @@
                                 {
                                     "addressPrefixes": 
                                     [
-                                        "[reference('VNETDeployment').outputs.VirtualNetworkAddressSpace.value]"
+                                        "[variables('VirtualNetworkAddressSpace')]"
                                     ]
                                 },
                                 "subnets": 
@@ -76,10 +99,10 @@
                                         "name": "default",
                                         "properties": 
                                         {
-                                            "addressPrefix":"[reference('VNETDeployment').outputs.DefaultSubnetAddressPrefix.value]",
+                                            "addressPrefix":"[variables('VirtualNetworkAddressSpace')]",
                                             "networkSecurityGroup":
                                             {
-                                                "id":"[resourceId('Microsoft.Network/networkSecurityGroups',reference('NSGDeployment').outputs.Name.value)]"
+                                                "id":"[resourceId('Microsoft.Network/networkSecurityGroups',variables('NetworkSecurityGroupName'))]"
                                             }
                                         } 
                                     }

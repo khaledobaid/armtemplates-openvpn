@@ -1,28 +1,43 @@
 {
     "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
     "contentVersion": "1.0.0.0",
-    "variables": {
-        "VirtualNetworkName": "OpenVPN-VNET",
-        "VirtualNetworkAddressSpace": "192.168.255.240/28"
+    "parameters": 
+    {
+        "VirtualNetworkName":
+        {
+            "type": "string",
+            "metadata": 
+            {
+                "description":"The name of the virtual network."
+            }
+        },
+        "VirtualNetworkAddressSpace":
+        {
+            "type": "string",
+            "metadata": 
+            {
+                "description":"The Virtual Network Address Space."
+            }
+        }
     },
     "resources": [ 
         {
             "type": "Microsoft.Network/virtualNetworks",
-            "name": "[variables('VirtualNetworkName')]",
+            "name": "[parameters('VirtualNetworkName')]",
             "apiVersion": "2018-02-01",
             "location": "[resourceGroup().location]",
             "tags": {},
             "properties": {
                 "addressSpace": {
                     "addressPrefixes": [
-                        "[variables('VirtualNetworkAddressSpace')]"
+                        "[parameters('VirtualNetworkAddressSpace')]"
                     ]
                 },
                 "subnets": [
                     {
                         "name": "default",
                         "properties": {
-                            "addressPrefix": "[variables('VirtualNetworkAddressSpace')]"  
+                            "addressPrefix": "[parameters('VirtualNetworkAddressSpace')]"  
                         } 
                     }
                 ]
@@ -34,17 +49,17 @@
         "VirtualNetworkAddressSpace":
         {
             "type": "string",
-            "value": "[variables('VirtualNetworkAddressSpace')]"
+            "value": "[parameters('VirtualNetworkAddressSpace')]"
         },
         "DefaultSubnetAddressPrefix":
         {
             "type": "string",
-            "value": "[variables('VirtualNetworkAddressSpace')]"
+            "value": "[parameters('VirtualNetworkAddressSpace')]"
         },
         "VNETName":
         {
             "type": "string",
-            "value": "[variables('VirtualNetworkName')]"
+            "value": "[parameters('VirtualNetworkName')]"
         }
     }
 }

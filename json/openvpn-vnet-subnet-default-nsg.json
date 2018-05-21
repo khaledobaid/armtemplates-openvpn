@@ -1,15 +1,22 @@
 {
     "$schema": "http://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
     "contentVersion": "1.0.0.0",
-    "parameters": {},
-    "variables":
+    "parameters": 
     {
-        "NSGName":"OpenVPN-VNET-Subnet-Default-NSG"
+        "NetworkSecurityGroupName":
+        {
+            "type": "string",
+            "metadata": 
+            {
+                "description":"The Network Security Group Name"
+            }
+            
+        }
     },
     "resources":  
     [
         {
-            "name":"[variables('NSGName')]",
+            "name":"[parameters('NetworkSecurityGroupName')]",
             "type":"Microsoft.Network/networkSecurityGroups",
             "apiVersion":"2018-02-01",
             "location":"[resourceGroup().location]",
@@ -86,7 +93,7 @@
         "Name":
         {
             "type": "string",
-            "value": "[variables('NSGName')]"
+            "value": "[parameters('NetworkSecurityGroupName')]"
         }
     }
   }

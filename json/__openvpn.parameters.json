@@ -3,9 +3,13 @@
     "contentVersion": "1.0.0.0",
     "parameters": 
     {
-        "VNETName":
+        "VirtualNetworkName":
         {
-            "value": "Test"
+            "value": "OpenVPN-VNET"
+        },
+        "VirtualNetworkAddressSpace":
+        {
+            "value":"192.168.255.240/28"
         }
     }
 }
