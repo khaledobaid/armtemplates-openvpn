@@ -22,6 +22,22 @@
                 "description":"This is required to supoort providing deployment file from the auzre portal, anyway it will be ignored udring deployment."
             }
 
+        },
+        "BaseTemplateUrl":
+        {
+            "type": "string"
+        },
+        "VirtualNetworkName":
+        {
+            "type": "string"
+        },
+        "VirtualNetworkAddressSpace":
+        {
+            "type":"string"
+        },
+        "NetworkSecurityGroupName":
+        {
+            "type":"string"
         }
     },
     "resources": 
