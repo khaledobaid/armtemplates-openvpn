@@ -24,9 +24,17 @@
         {
             "type":"string"
         },
-        "SecretInfo":
+        "VaultResourceGroup":
         {
-            "type": "securestring"
+            "type": "string"
+        },
+        "VaultName":
+        {
+            "type": "string"
+        },
+        "VaultSecretName":
+        {
+            "type": "string"
         }
     },
     "resources": 
@@ -80,7 +88,14 @@
                     },
                     "SecretInfo":
                     {
-                        "value":"[parameters('SecretInfo')]"
+                        "reference":
+                        {
+                            "keyVault":
+                            {
+                                "id":"[resourceId(subscription().subscriptionId,  parameters('VaultResourceGroup'), 'Microsoft.KeyVault/vaults', parameters('VaultName'))]"
+                            },
+                            "secretName":"[parameters('VaultSecretName')]"
+                        }
                     }
                 }
             } 

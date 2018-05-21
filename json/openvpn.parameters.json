@@ -19,17 +19,17 @@
         {
             "value":"OpenVPN-VNET-Subnet-Default-NSG"
         },
-        "SecretInfo":
+        "VaultResourceGroup":
         {
-            "reference": 
-            {
-                "secretName": "AppConfig",
-                "keyVault": 
-                {
-                    "id": "/subscriptions/2416e8b7-a516-491d-8dc4-65c5dfcae9bc/resourceGroups/Assets/providers/Microsoft.KeyVault/vaults/KeysVaults"
-                }
-                
-            }
+            "value": "Assets"
+        },
+        "VaultName":
+        {
+            "value": "KeysVaults"
+        },
+        "VaultSecretName":
+        {
+            "value": "AppConfig"
         }
     }
 }
